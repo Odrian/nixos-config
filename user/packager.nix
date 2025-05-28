@@ -9,7 +9,7 @@
 
   environment.systemPackages = with pkgs; [
     unzip wget micro
-    helix rust-analyzer rustfmt nil
+    rustfmt
     flameshot
 
     nekoray

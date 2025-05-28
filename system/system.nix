@@ -7,6 +7,7 @@
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
+  home-manager.backupFileExtension = "backup";
   home-manager.users.catadrian = { ... }: {
     # info for home manager
     home.username = "catadrian";
