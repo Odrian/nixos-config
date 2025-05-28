@@ -12,7 +12,7 @@
 {
   imports =
     [
-      ./system.nix
+      ./system/init.nix
     ];
 
   # Install firefox.
@@ -27,25 +27,28 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     unzip wget micro git
-    helix
+    helix rust-analyzer rustfmt nil
     flameshot
 
-	nekoray
-	nftables
-	linuxKernel.packages.linux_zen.amneziawg
-	amneziawg-go amneziawg-tools
-    telegram-desktop
-    discord
+    nekoray
+    nftables
+    linuxKernel.packages.linux_zen.amneziawg
+    amneziawg-go amneziawg-tools
+
+    telegram-desktop discord
 
     gcc
-    rustc cargo rust-analyzer sccache rustfmt
+    rustc cargo sccache
     neovim
+
+    # thunderbird
+    kdePackages.kate
   ];
 
   fonts.packages = with pkgs; [
-  	nerd-fonts.jetbrains-mono
-  	nerd-fonts.fira-code
-  	nerd-fonts.droid-sans-mono
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.fira-code
+    nerd-fonts.droid-sans-mono
   ];
 
   boot.extraModulePackages = with config.boot.kernelPackages; [ amneziawg ];

@@ -1,11 +1,13 @@
 { config, pkgs, ... }:
 
 {
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixos";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -33,54 +35,6 @@
     LC_TIME = "ru_RU.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-/*
-  services.xserver = {
-    enable = true;
-    desktopManager.xfce = {
-      thunarPlugins = with pkgs; [
-        xfce.thunar-archive-plugin
-        xfce.thunar-volman
-        xfce.thunar-media-tags-plugin
-      ];
-    };
-    windowManager.bspwm.enable = true;
-    displayManager.lightdm = {
-      enable = true;
-#      background = pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath;
-      greeters = {
-        gtk = {
-          theme = {
-            name = "Dracula";
-            package = pkgs.dracula-theme;
-          };
-          cursorTheme = {
-            name = "Dracula-cursors";
-            package = pkgs.dracula-theme;
-            size = 16;
-          };
-        };
-      };
-    };
-  };
-  services.displayManager.defaultSession = "none+bspwm";
-*/
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-#  services.xserver.displayManager.lightdm.enable = true;
-
-  services.desktopManager.plasma6.enable = true;
-#  services.xserver.desktopManager.plasma5.enable = true;
-#  services.xserver.desktopManager.xfce.enable = true;
-#  services.xserver.desktopManager.gnome.enable = true;
-#  services.xserver.desktopManager.mate.enable = true;
-#  services.xserver.windowManager.xmonad.enable = true;
-#  services.xserver.windowManager.twm.enable = true;
-#  services.xserver.windowManager.icewm.enable = true;
-#  services.xserver.windowManager.i3.enable = true;
-#  services.xserver.windowManager.herbstluftwm.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -92,7 +46,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -107,18 +61,11 @@
     #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.catadrian = {
     isNormalUser = true;
     description = "Adrian";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      kdePackages.kate
-    #  thunderbird
-    ];
   };
 
   # Enable automatic login for the user.
