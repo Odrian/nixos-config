@@ -9,30 +9,24 @@ in
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  programs.firefox.enable = true;
+  # programs.firefox.enable = true;
   programs.amnezia-vpn.enable = true;
 
   environment.systemPackages = with pkgs; [
     zen-browser
-    telegram-desktop
-    discord
+    telegram-desktop discord
 
-    unzip
-    wget
-    micro
-    rustfmt
+    unzip wget micro
     flameshot
 
     nekoray
-    nftables
+    nftables # for zapret
     linuxKernel.packages.linux_zen.amneziawg
-    amneziawg-go
-    amneziawg-tools
+    amneziawg-go amneziawg-tools
 
     gcc
-    rustc
-    cargo
-    sccache
+    rustc cargo sccache
+    rustfmt
     neovim
 
     # thunderbird

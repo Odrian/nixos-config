@@ -15,12 +15,13 @@
     };
     settings.keys.normal = {
       "backspace" = {
-        e = [ ":w" ":sh cargo build" ];
-        f = [ ":w" ":sh cargo fmt" ];
+        q = ":q";
+        Q = ":q!";
         r = ":wq";
         s = ":w";
-        S = ":config-reload";
-        c = ":config-open";
+
+        e = [ ":w" ":sh cargo build" ];
+        f = [ ":w" ":sh cargo fmt" ];
       };
       # scroll selections up one line
       "C-k" = [
