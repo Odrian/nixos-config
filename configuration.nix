@@ -4,52 +4,10 @@
 
 { config, pkgs, ... }:
 
-# let
-#   unstableTarball =
-#     fetchTarball
-#       https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz;
-# in
 {
   imports =
     [
       ./system/init.nix
+      ./user/init.nix
     ];
-
-  # Install firefox.
-  programs.firefox.enable = true;
-
-  programs.amnezia-vpn.enable = true;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    unzip wget micro git
-    helix rust-analyzer rustfmt nil
-    flameshot
-
-    nekoray
-    nftables
-    linuxKernel.packages.linux_zen.amneziawg
-    amneziawg-go amneziawg-tools
-
-    telegram-desktop discord
-
-    gcc
-    rustc cargo sccache
-    neovim
-
-    # thunderbird
-    kdePackages.kate
-  ];
-
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-    nerd-fonts.fira-code
-    nerd-fonts.droid-sans-mono
-  ];
-
-  boot.extraModulePackages = with config.boot.kernelPackages; [ amneziawg ];
 }
