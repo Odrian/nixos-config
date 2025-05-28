@@ -7,5 +7,5 @@
     <home-manager/nixos>
   ];
 
-  home-manager.users.catadrian = import ./home.nix;
+  home-manager.users.catadrian = import ./home/init.nix;
 }

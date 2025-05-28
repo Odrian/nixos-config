@@ -1,5 +1,10 @@
 { config, pkgs, ... }:
 
+let
+  # Импорт flake вручную
+  zen-browser-flake = builtins.getFlake "github:Gurjaka/zen-browser-nix";
+  zen-browser = zen-browser-flake.packages.${pkgs.system}.default;
+in
 {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -8,19 +13,26 @@
   programs.amnezia-vpn.enable = true;
 
   environment.systemPackages = with pkgs; [
-    unzip wget micro
+    zen-browser
+    telegram-desktop
+    discord
+
+    unzip
+    wget
+    micro
     rustfmt
     flameshot
 
     nekoray
     nftables
     linuxKernel.packages.linux_zen.amneziawg
-    amneziawg-go amneziawg-tools
-
-    telegram-desktop discord
+    amneziawg-go
+    amneziawg-tools
 
     gcc
-    rustc cargo sccache
+    rustc
+    cargo
+    sccache
     neovim
 
     # thunderbird
