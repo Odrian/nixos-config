@@ -1,6 +1,22 @@
 { ... }:
 
 {
+  imports = [
+    <home-manager/nixos>
+  ];
+
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+  home-manager.users.catadrian = { ... }: {
+    # info for home manager
+    home.username = "catadrian";
+    home.homeDirectory = "/home/catadrian";
+
+    home.stateVersion = "25.05"; # don't change
+
+    programs.home-manager.enable = true;
+  };
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Bootloader.

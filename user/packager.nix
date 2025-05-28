@@ -8,7 +8,7 @@
   programs.amnezia-vpn.enable = true;
 
   environment.systemPackages = with pkgs; [
-    unzip wget micro git
+    unzip wget micro
     helix rust-analyzer rustfmt nil
     flameshot
 
