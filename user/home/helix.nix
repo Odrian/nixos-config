@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   programs.helix = {
@@ -19,6 +19,7 @@
         Q = ":q!";
         r = ":wq";
         s = ":w";
+        S = ":config-reload";
 
         e = [ ":w" ":sh cargo build" ];
         f = [ ":w" ":sh cargo fmt" ];
