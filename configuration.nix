@@ -6,8 +6,10 @@
 
 {
   imports =
-    [
-      ./system/init.nix
-      ./user/init.nix
-    ];
+  [
+    ./system/init.nix
+    <home-manager/nixos>
+  ];
+
+  home-manager.users.catadrian = import ./home/init.nix;
 }

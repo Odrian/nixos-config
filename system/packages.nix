@@ -15,11 +15,11 @@ in
   environment.systemPackages = with pkgs; [
     zen-browser
     telegram-desktop discord
+    nekoray
 
     unzip wget micro
     flameshot
 
-    nekoray
     nftables # for zapret
     linuxKernel.packages.linux_zen.amneziawg
     amneziawg-go amneziawg-tools
@@ -37,5 +37,7 @@ in
     nerd-fonts.droid-sans-mono
   ];
 
-  boot.extraModulePackages = with config.boot.kernelPackages; [ amneziawg ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    amneziawg
+  ];
 }
