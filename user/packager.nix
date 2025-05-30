@@ -25,8 +25,6 @@ in
     amneziawg-go amneziawg-tools
 
     gcc
-    rustc cargo sccache
-    rustfmt
     neovim
 
     # thunderbird

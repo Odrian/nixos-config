@@ -6,7 +6,6 @@
     defaultEditor = true;
     extraPackages = with pkgs; [
       # helix-gpt
-      rust-analyzer # rust lsp
       nil nixd # nix lsp
     ];
     settings.theme = "sonokai";
@@ -52,9 +51,10 @@
       # ",".D = [ "save_selection" "extend_to_line_bounds" "toggle_comments" "yank" "paste_before" "jump_backward" "toggle_comments" ];
     };
     languages = {
-      # language-server.rust-analyzer.config.check = {
-      # command = "clippy";
-      # };
+      language-server.rust-analyzer.config = {
+        checkOnSave.command = "clippy";
+        # check.command = "clippy";
+      };
       # language-server.gpt = {
       # command = "helix-gpt";
       # args = [ "--handler" "copilot" ];
