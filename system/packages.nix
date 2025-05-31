@@ -12,6 +12,15 @@ in
   # programs.firefox.enable = true;
   programs.amnezia-vpn.enable = true;
 
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+  };
+  hardware.graphics.enable32Bit = true; # for Proton
+  hardware.steam-hardware.enable = true; # for gamepad
+
   environment.systemPackages = with pkgs; [
     zen-browser
     telegram-desktop discord
@@ -24,7 +33,6 @@ in
     linuxKernel.packages.linux_zen.amneziawg
     amneziawg-go amneziawg-tools
 
-    gcc
     neovim
 
     # thunderbird
