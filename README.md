@@ -1,6 +1,6 @@
 My config for nixos
 
-You probably want to change my username (catadrian) to yours everywhere. Currently I don't know how to fix this
+You probably want to change my username (catadrian) to yours in ./configuration.nix ./system/defaults.nix ./system/system.nix
 
 # Setup
 
