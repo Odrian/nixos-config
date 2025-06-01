@@ -1,6 +1,13 @@
 My config for nixos
 
+You probably want to change my username (catadrian) to yours everywhere. Currently I don't know how to fix this
+
 # Setup
+
+setup password
+```
+passwd
+```
 
 setup channels
 ```

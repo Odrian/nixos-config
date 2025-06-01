@@ -6,5 +6,6 @@
     ./git.nix
     ./rust.nix
     # ./zapret.nix
+    ./files.nix
   ];
 }

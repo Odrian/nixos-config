@@ -24,10 +24,11 @@ in
   environment.systemPackages = with pkgs; [
     zen-browser
     telegram-desktop discord
-    nekoray
+    nekoray # vpn
 
     unzip wget micro
     flameshot
+    ncdu # disk usage analyzer
 
     nftables # for zapret
     linuxKernel.packages.linux_zen.amneziawg

@@ -15,8 +15,3 @@ sudo tee /etc/nixos/configuration.nix > /dev/null <<EOF
 EOF
 
 echo "/etc/nixos/configuration.nix создан с импортом из ${CONFIG_DIR}/configuration.nix"
-
-cp -r ./scripts/* ~/
-
-echo "скрипты скопироваты в ~/"
-
