@@ -7,9 +7,9 @@
 {
   imports =
   [
-    ./system/init.nix
+    ./system/default.nix
     <home-manager/nixos>
   ];
 
-  home-manager.users.catadrian = import ./home/init.nix;
+  home-manager.users.catadrian = import ./home/default.nix;
 }
