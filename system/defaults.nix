@@ -1,16 +1,19 @@
 { ... }:
 
+let
+  settings = import ../settings.nix;
+in
 {
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.catadrian = {
+  users.users."${settings.username}" = {
     isNormalUser = true;
-    description = "Adrian";
+    description = settings.userDescription;
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
   # Enable automatic login for the user.
   services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "catadrian";
+  services.displayManager.autoLogin.user = settings.username;
 
   # Set your time zone.
   time.timeZone = "Europe/Moscow";

@@ -1,13 +1,16 @@
 { ... }:
 
+let
+  settings = import ../settings.nix;
+in
 {
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.backupFileExtension = "backup";
-  home-manager.users.catadrian = { ... }: {
+  home-manager.users."${settings.username}" = { ... }: {
     # info for home manager
-    home.username = "catadrian";
-    home.homeDirectory = "/home/catadrian";
+    home.username = "${settings.username}";
+    home.homeDirectory = "/home/${settings.username}";
 
     home.stateVersion = "25.05"; # don't change
 
@@ -46,5 +49,5 @@
   # };
 
   # Read before changing https://search.nixos.org/options?query=system.stateVersion
-  system.stateVersion = "24.11"; # Do not change this value
+  system.stateVersion = "25.05"; # Do not change this value
 }

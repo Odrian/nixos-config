@@ -5,7 +5,7 @@
     ./helix.nix
     ./git.nix
     ./rust.nix
-    # ./zapret.nix
+    ./zapret.nix
     ./files.nix
   ];
 }

@@ -1,5 +1,8 @@
 { ... }:
 
+let
+  settings = import ../settings.nix;
+in
 {
   programs.git = {
     enable = true;
@@ -7,8 +10,8 @@
     lfs.enable = true;
     delta.enable = true;
 
-    userName = "Odrian";
-    userEmail = "adrian46tver@bk.ru";
+    userName = settings.git.userName;
+    userEmail = settings.git.userEmail;
 
     # signing = {
       # signByDefault = true;

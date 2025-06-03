@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 let
+  settings = import ../settings.nix;
+
   zapret-src = pkgs.fetchFromGitHub {
     owner = "Sergeydigl3";
     repo = "zapret-discord-youtube-linux";
@@ -9,9 +11,9 @@ let
   };
 
   configText = ''
-    interface=wlp2s0
+    interface=${settings.zapret.wifi}
     auto_update=false
-    strategy=general_alt5.bat
+    strategy=${settings.zapret.strategy}
   '';
 
   repoPath = "$HOME/.zapret";
@@ -30,25 +32,8 @@ in {
   '';
 
   home.file."zapret.sh".text = ''
-set -e  # Остановить выполнение при ошибке
-
-# Путь до env-файла
-REPO_PATH="$HOME/workspace/zapret-discord-youtube-linux"
-CONFIG_FILE="$REPO_PATH/conf.env"
-SCRIPT_FILE="$REPO_PATH/main_script.sh"
-
-# Записываем содержимое в конфигурационный файл
-cat > "$CONFIG_FILE" <<EOF
-interface=wlp2s0
-auto_update=false
-strategy=general_alt.bat
-EOF
-
-echo "Конфигурация записана в $CONFIG_FILE"
-
-# Запускаем основной скрипт
-bash "$SCRIPT_FILE" -nointeractive
-    '';
+    bash ${scriptPath} -nointeractive
+  '';
 
   # systemd user unit
   systemd.user.services.zapret = {
@@ -58,7 +43,7 @@ bash "$SCRIPT_FILE" -nointeractive
     };
 
     Service = {
-      ExecStart = "${pkgs.bash}/bin/bash ${scriptPath} -nointeractive";
+      ExecStart = "sudo ${pkgs.bash}/bin/bash ~/zapret.sh";
       Restart = "on-failure";
     };
 

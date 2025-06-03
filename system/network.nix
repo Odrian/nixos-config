@@ -1,7 +1,10 @@
 { ... }:
 
+let
+  settings = import ../settings.nix;
+in
 {
-  networking.hostName = "nixos";
+  networking.hostName = settings.hostname;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
