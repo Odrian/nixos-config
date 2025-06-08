@@ -19,6 +19,8 @@ in
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  time.hardwareClockInLocalTime = true; # fix time in Windows
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
