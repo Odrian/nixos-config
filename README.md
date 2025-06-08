@@ -46,4 +46,4 @@ bash ./clear_all.sh
 
 # TODO
 
-* add to autostart: nekoray, telegram, zen, discord, zapret
+* add to autostart: nekoray, telegram, discord

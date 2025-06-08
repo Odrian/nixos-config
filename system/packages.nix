@@ -1,16 +1,10 @@
 { config, pkgs, ... }:
 
-let
-  # Импорт flake вручную
-  zen-browser-flake = builtins.getFlake "github:Gurjaka/zen-browser-nix";
-  zen-browser = zen-browser-flake.packages.${pkgs.system}.default;
-in
 {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # programs.firefox.enable = true;
-  programs.amnezia-vpn.enable = true;
 
   programs.steam = {
     enable = true;
@@ -22,19 +16,16 @@ in
   hardware.steam-hardware.enable = true; # for gamepad
 
   environment.systemPackages = with pkgs; [
-    zen-browser
-    telegram-desktop discord
+    telegram-desktop
+    discord
+    yandex-music
     nekoray # vpn
 
     unzip wget micro
     flameshot
+
     ncdu # disk usage analyzer
-
-    nftables # for zapret
-    linuxKernel.packages.linux_zen.amneziawg
-    amneziawg-go amneziawg-tools
-
-    neovim
+    gparted # disk partitioning tool
 
     # thunderbird
     kdePackages.kate
@@ -44,9 +35,5 @@ in
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
     nerd-fonts.droid-sans-mono
-  ];
-
-  boot.extraModulePackages = with config.boot.kernelPackages; [
-    amneziawg
   ];
 }
