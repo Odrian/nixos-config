@@ -27,7 +27,7 @@ in
 
     prime = {
       intelBusId = settings.intelBusId;
-      nvidiaBusId = settings.nvideaBusId;
+      nvidiaBusId = settings.nvidiaBusId;
 
       # offload = { # option A
       #   enable = true;

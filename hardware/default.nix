@@ -1,6 +1,6 @@
 {
-  import = [
-    ./nvidea_intel.nix
+  imports = [
+    ./nvidia_intel.nix
     ./network.nix
   ];
 }
