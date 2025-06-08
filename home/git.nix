@@ -23,6 +23,7 @@ in
       init.defaultBranch = "main";
       # pull.rebase = true;
       # push.autoSetupRemote = true;
+      credential.helper = "store"; # NOT ENCRYPTED cache username and password
     };
   };
   
