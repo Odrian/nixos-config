@@ -8,6 +8,7 @@
   imports =
   [
     ./system/default.nix
+    ./hardware/hardware.nix
     <home-manager/nixos>
   ];
 
