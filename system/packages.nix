@@ -20,6 +20,7 @@
     discord
     yandex-music
     nekoray # vpn
+    pinta # image editor
 
     unzip wget micro
     flameshot
