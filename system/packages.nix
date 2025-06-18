@@ -25,7 +25,7 @@
     unzip wget micro
     flameshot
 
-    ncdu # disk usage analyzer
+    kdePackages.filelight # disk usage analyzer
     gparted # disk partitioning tool
 
     # thunderbird
