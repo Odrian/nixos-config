@@ -32,7 +32,8 @@
   #   echo "${configText}" > ${confEnvPath}
   # '';
 
-  home.file."zapret.sh".text = ''
+  home.file."zapret.sh" = {
+    text = ''
 GIT_LINK="https://github.com/Sergeydigl3/zapret-discord-youtube-linux.git"
 TARGET_DIR="$HOME/.zapret"
 BASH_SCRIPT="$TARGET_DIR/main_script.sh"
@@ -55,5 +56,7 @@ else
 fi
 
 bash $BASH_SCRIPT
-  '';
+    '';
+    executable = true;
+  };
 }

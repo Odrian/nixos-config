@@ -1,11 +1,15 @@
 { ... }:
 
 {
-  home.file."rebuild.sh".text = ''
+  home.file."rebuild.sh" = {
+    text = ''
       sudo nixos-rebuild switch
-  '';
+    '';
+    executable = true;
+  };
 
-  home.file."clear_all.sh".text = ''
+  home.file."clear_all.sh" = {
+    text = ''
 read -p "Are you sure you want to delete old generation? [yes]: " confirm
 
 if [[ "$confirm" == "yes" ]]; then
@@ -22,5 +26,7 @@ if [[ "$confirm" == "yes" ]]; then
     sudo nix-collect-garbage
   fi
 fi
-  '';
+    '';
+    executable = true;
+  };
 }
