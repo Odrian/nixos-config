@@ -7,6 +7,7 @@
 {
   imports =
   [
+    # ./secure-boot.nix
     ./system/default.nix
     ./hardware/default.nix
     <home-manager/nixos>

@@ -57,6 +57,11 @@ Delete old generations (keep today generations or only last)
 ~/clear_all.sh
 ````
 
+# secure boot
+
+read [guide](https://github.com/nix-community/lanzaboote/blob/master/docs/QUICK_START.md)  
+uncomment `./secure-boot.nix` in `configuration.nix`
+
 # TODO
 
 * add to autostart: nekoray, telegram, discord

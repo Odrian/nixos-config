@@ -28,6 +28,8 @@
     kdePackages.filelight # disk usage analyzer
     gparted # disk partitioning tool
 
+    sbctl niv # for secure boot
+
     # thunderbird
     kdePackages.kate
   ];
