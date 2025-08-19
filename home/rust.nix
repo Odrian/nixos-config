@@ -2,9 +2,10 @@
 
 {
   home.packages = with pkgs; [
-    rust-analyzer clippy rustfmt
-    rustc cargo sccache
-    sccache
+    rustup
+    gcc sccache
+
+    jetbrains.rust-rover
   ];
 
   home.sessionVariables = {
