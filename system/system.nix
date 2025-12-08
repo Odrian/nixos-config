@@ -18,19 +18,6 @@ in
     options = [ "rw" "uid=1000" "gid=100" "umask=0000" ];
   };
 
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
-  home-manager.backupFileExtension = "backup";
-  home-manager.users."${username}" = { ... }: {
-    # info for home manager
-    home.username = "${username}";
-    home.homeDirectory = "/home/${username}";
-
-    home.stateVersion = "25.05"; # don't change
-
-    programs.home-manager.enable = true;
-  };
-
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   time.hardwareClockInLocalTime = true; # fix time in Windows

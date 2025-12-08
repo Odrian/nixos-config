@@ -15,9 +15,11 @@ sudo nix-channel --update
 
 # Setup
 
-Clone repository
+
+### Clone repository
 ````
-git clone https://github.com/Odrian/nixos-config.git
+cd ~
+git clone https://github.com/Odrian/nixos-config.git nixos-config
 cd nixos-config
 ````
 
@@ -37,13 +39,25 @@ nix-shell -p micro
 micro settings.nix
 ````
 
-### Build
+### First build
 
-Run ````bash setup.sh````, it will create /etc/nixos/configuration.nix which import "./hardware-configuration.nix" and "${CONFIG_DIR}/configuration.nix"
+Run ````bash setup.sh````, it will set nix-channel, update /etc/nixos/configuration.nix, install home-manager, update ~/.config/home-manager/home.nix
 
 For first rebuild use
 ````
 sudo nixos-rebuild switch --option experimental-features "nix-command flakes"
+````
+
+## builds
+
+after changing nixos-config/home
+````
+home-manager switch
+````
+
+after changing anything else
+````
+sudo nixos-rebuild switch
 ````
 
 # Shortcuts
@@ -64,7 +78,7 @@ uncomment `./secure-boot.nix` in `configuration.nix`
 
 # TODO
 
-* add to autostart: nekoray, telegram, discord
+* add to autostart: Throne, telegram, discord
 * support single GPU
 * make flag in settings.nix for first run
 * move all programs to home/*.nix

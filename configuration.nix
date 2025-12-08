@@ -10,8 +10,5 @@
     # ./secure-boot.nix
     ./system/default.nix
     ./hardware/default.nix
-    <home-manager/nixos>
   ];
-
-  home-manager.users.catadrian = import ./home/default.nix;
 }
