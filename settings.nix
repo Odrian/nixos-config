@@ -1,7 +1,9 @@
-{
-  username = "catadrian";
+rec {
+  username = ""; # CHANGE: your username
   userDescription = "Adrian";
   hostname = "nixos";
+
+  path-to-config = "/home/${username}/nixos-config"; # CHANGE: directory where this file is located
 
   intelBusId = "PCI:0:2:0";
   nvidiaBusId = "PCI:1:0:0";
@@ -12,7 +14,7 @@
   };
 
   git = {
-    userName  = "Odrian";
-    userEmail = "radukaa@mail.ru";
+    userName  = ""; # CHANGE
+    userEmail = ""; # CHANGE
   };
 }

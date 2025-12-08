@@ -35,8 +35,19 @@ in
 
   time.hardwareClockInLocalTime = true; # fix time in Windows
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot = {
+    # to use simpler boot enable this and comment disable boot.loader.grub.enable
+    enable = false;
+  };
+  boot.loader.grub = {
+    enable = true;
+    device = "nodev";
+    useOSProber = true;
+    efiSupport = true;
+    default = 2; # windows by default
+    theme = "${settings.path-to-config}/grub-theme";
+    splashImage = "${settings.path-to-config}/grub-theme/background.png"; # 1 more second of image
+  };
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Enable CUPS to print documents.
