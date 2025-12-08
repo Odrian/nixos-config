@@ -32,7 +32,7 @@ in {
     telegram-desktop
     # discord
     pkgs-unstable.yandex-music
-    nekoray # vpn
+    throne # vpn
     pinta # image editor
     python3
 
