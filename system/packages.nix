@@ -3,6 +3,7 @@
 let
   settings = import ../settings.nix;
   username = settings.username;
+  pkgs-unstable = import <nixpkgs-unstable> { config = { allowUnfree = true; }; };
 in {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -22,13 +23,20 @@ in {
   users.users.${username}.extraGroups = [ "docker" ];
 
   environment.systemPackages = with pkgs; [
+    aspell
+    aspellDicts.en
+    aspellDicts.en-computers
+    aspellDicts.en-science
+    aspellDicts.ru
+
     telegram-desktop
-    discord
-    yandex-music
+    # discord
+    pkgs-unstable.yandex-music
     nekoray # vpn
     pinta # image editor
+    python3
 
-    unzip wget micro
+    unzip wget micro tree
     flameshot
 
     kdePackages.filelight # disk usage analyzer
@@ -38,6 +46,7 @@ in {
 
     # thunderbird
     kdePackages.kate
+    gnome-system-monitor
   ];
 
   fonts.packages = with pkgs; [
