@@ -3,7 +3,7 @@
 {
   home.packages = with pkgs; [
     rustup
-    gcc sccache
+    sccache
 
     jetbrains.rust-rover
   ];

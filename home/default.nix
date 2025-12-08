@@ -8,6 +8,7 @@
     ./zapret.nix
 
     ./rust.nix
+    ./cpp.nix
     ./zen.nix
   ];
 }
