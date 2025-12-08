@@ -13,6 +13,6 @@
 
   git = {
     userName  = "Odrian";
-    userEmail = "adrian46tver@bk.ru";
+    userEmail = "radukaa@mail.ru";
   };
 }

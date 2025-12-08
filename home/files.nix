@@ -14,9 +14,9 @@ read -p "Are you sure you want to delete old generation? [yes]: " confirm
 
 if [[ "$confirm" == "yes" ]]; then
   echo "Today generations will not be deleted"
-  read -p "Do you want keep only last generation? [absolutely/no]: " confirm2
+  read -p "Do you want keep only last generation? [yes/no]: " confirm2
 
-  if [[ "$confirm2" == "absolutely" ]] then
+  if [[ "$confirm2" == "yes" ]] then
     echo "KEEP ONLY THIS GENERATION"
     sudo nix-env --delete-generations old --profile /nix/var/nix/profiles/system
     sudo nix-collect-garbage

@@ -10,7 +10,7 @@
     ];
     settings.theme = "sonokai";
     settings.editor = {
-      line-number = "relative";
+      line-number = "absolute";
     };
     settings.keys.normal = {
       "backspace" = {
