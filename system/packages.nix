@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
-{
+let
+  settings = import ../settings.nix;
+  username = settings.username;
+in {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -14,6 +17,9 @@
   };
   hardware.graphics.enable32Bit = true; # for Proton
   hardware.steam-hardware.enable = true; # for gamepad
+
+  virtualisation.docker.enable = true;
+  users.users.${username}.extraGroups = [ "docker" ];
 
   environment.systemPackages = with pkgs; [
     telegram-desktop
