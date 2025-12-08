@@ -8,17 +8,16 @@ in
     enable = true;
 
     lfs.enable = true;
-    delta.enable = true;
 
-    userName = settings.git.userName;
-    userEmail = settings.git.userEmail;
+    settings = {
+      user.name = settings.git.userName;
+      user.email = settings.git.userEmail;
 
     # signing = {
       # signByDefault = true;
       # key = "3C23C7BD99452036";
     # };
 
-    extraConfig = {
       core.editor = "micro";
       init.defaultBranch = "main";
       # pull.rebase = true;
@@ -26,5 +25,9 @@ in
       credential.helper = "store"; # NOT ENCRYPTED cache username and password
     };
   };
-  
+
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+  };
 }
