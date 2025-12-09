@@ -8,6 +8,6 @@
     gnumake cmake
     ccache
 
-    jetbrains.clion
+    (jetbrains.clion.override { forceWayland = true; })
   ];
 }

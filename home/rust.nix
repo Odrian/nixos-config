@@ -5,7 +5,7 @@
     rustup
     sccache
 
-    jetbrains.rust-rover
+    (jetbrains.rust-rover.override { forceWayland = true; })
   ];
 
   home.sessionVariables = {
