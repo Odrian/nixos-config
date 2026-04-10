@@ -16,12 +16,10 @@ in
     ./files.nix
     ./git.nix
     ./helix.nix
-    ./zapret.nix
 
     ./rust.nix
     ./cpp.nix
-    ./zen.nix
-    # ./kotlin.nix
+
     ./dedub.nix
   ];
 }
