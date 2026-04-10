@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   settings = import ../settings.nix;
@@ -17,6 +17,8 @@ in
 
   hardware.graphics.enable = true;
 
+  # hardware.graphics.extraPackages = with pkgs; [ intel-ocl intel-compute-runtime-legacy1 ];
+
   services.xserver.videoDrivers = [
     "nvidia"
     "modesetting"
@@ -29,11 +31,11 @@ in
       intelBusId = settings.intelBusId;
       nvidiaBusId = settings.nvidiaBusId;
 
-      # offload = { # option A
-      #   enable = true;
-      #   enableOffloadCmd = true;
-      # };
-      sync.enable = true; # option B
+      offload = { # option A
+        enable = true;
+        enableOffloadCmd = true;
+      };
+      # sync.enable = true; # option B
       # reverseSync.enable = true; # option C
     };
 

@@ -1,6 +1,30 @@
 { ... }:
 
 {
+  home.file."gpu.sh" = {
+    text = ''
+      export __NV_PRIME_RENDER_OFFLOAD=1
+      export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
+      export __GLX_VENDOR_LIBRARY_NAME=nvidia
+      export __VK_LAYER_NV_optimus=NVIDIA_only
+      exec "$@"
+    '';
+    executable = true;
+  };
+  home.file."no_proxy.sh" = {
+    text = ''
+      unset NIX_REMOTE all_proxy http_proxy https_proxy ftp_proxy rsync_proxy
+      "$@"
+    '';
+    executable = true;
+  };
+  home.file."custom_rebuild.sh" = {
+    text = ''
+      from=$(~/no_proxy.sh nix-build '<nixpkgs/nixos>' -I nixos-config=/etc/nixos/configuration.nix --no-out-link -A system)
+      echo "$from/bin/switch-to-configuration"
+    '';
+    executable = true;
+  };
   home.file."rebuild.sh" = {
     text = ''
       sudo nixos-rebuild switch
