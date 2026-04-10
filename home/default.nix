@@ -16,6 +16,7 @@ in
     ./files.nix
     ./git.nix
     ./helix.nix
+    ./zen.nix
 
     ./rust.nix
     ./cpp.nix
