@@ -12,8 +12,8 @@ in
   };
 
   # Enable automatic login for the user.
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = settings.username;
+  # services.displayManager.autoLogin.enable = true;
+  # services.displayManager.autoLogin.user = settings.username;
 
   # Set your time zone.
   time.timeZone = "Europe/Moscow";
