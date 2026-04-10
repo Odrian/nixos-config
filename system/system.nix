@@ -2,7 +2,6 @@
 
 let
   settings = import ../settings.nix;
-  username = settings.username;
 in
 {
   boot.supportedFilesystems = [ "ntfs" ];
@@ -12,30 +11,26 @@ in
     size = 16*1024; # 16 GB
   }];
 
-  fileSystems."/D" = {
-    device = "/dev/disk/by-uuid/8760-5E23";
-    fsType = "exfat";
-    options = [ "rw" "uid=1000" "gid=100" "umask=0000" ];
-  };
-
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   time.hardwareClockInLocalTime = true; # fix time in Windows
 
-  boot.loader.systemd-boot = {
-    # to use simpler boot enable this and comment disable boot.loader.grub.enable
-    enable = false;
+  boot.loader = {
+    systemd-boot.enable = false; # to use simpler boot enable this and disable grub
+    grub = {
+      enable = true;
+      device = "nodev";
+      useOSProber = true;
+      efiSupport = true;
+      default = 0; # nixos by default
+      theme = "${settings.path-to-config}/grub-theme";
+      splashImage = "${settings.path-to-config}/grub-theme/background.png";
+    };
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot";
+    };
   };
-  boot.loader.grub = {
-    enable = true;
-    device = "nodev";
-    useOSProber = true;
-    efiSupport = true;
-    default = 2; # windows by default
-    theme = "${settings.path-to-config}/grub-theme";
-    splashImage = "${settings.path-to-config}/grub-theme/background.png"; # 1 more second of image
-  };
-  boot.loader.efi.canTouchEfiVariables = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
