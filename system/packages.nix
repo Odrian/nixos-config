@@ -29,25 +29,36 @@ in {
     aspellDicts.en-science
     aspellDicts.ru
 
+    obsidian
     telegram-desktop
     # discord
     pkgs-unstable.yandex-music
     throne # vpn
     pinta # image editor
     python3
+    zoom-us
 
+    vlc # video player
     unzip wget micro tree
     flameshot
 
     kdePackages.filelight # disk usage analyzer
-    gparted # disk partitioning tool
+    gparted exfatprogs # disk partitioning tool
 
     sbctl niv # for secure boot
 
     # thunderbird
     kdePackages.kate
     gnome-system-monitor
+
+#    gnomeExtensions.appindicator
+#    gnomeExtensions.tray-icons-reloaded
+#    gnomeExtensions.topicons-plus
+#    gnomeExtensions.dash-to-panel
   ];
+#  services.udev.packages = with pkgs; [
+#    gnome-settings-daemon
+#  ];
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono

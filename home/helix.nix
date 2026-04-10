@@ -7,6 +7,7 @@
     extraPackages = with pkgs; [
       # helix-gpt
       nil nixd # nix lsp
+      bash-language-server # bash lsp
     ];
     settings.theme = "sonokai";
     settings.editor = {
