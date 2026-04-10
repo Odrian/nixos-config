@@ -2,7 +2,6 @@
 
 let
   settings = import ../settings.nix;
-  username = settings.username;
   pkgs-unstable = import <nixpkgs-unstable> { config = { allowUnfree = true; }; };
 in {
   # Allow unfree packages
@@ -20,7 +19,7 @@ in {
   hardware.steam-hardware.enable = true; # for gamepad
 
   virtualisation.docker.enable = true;
-  users.users.${username}.extraGroups = [ "docker" ];
+  users.users.${settings.username}.extraGroups = [ "docker" ];
 
   environment.systemPackages = with pkgs; [
     aspell

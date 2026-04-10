@@ -9,6 +9,5 @@
   [
     # ./secure-boot.nix
     ./system/default.nix
-    ./hardware/default.nix
   ];
 }

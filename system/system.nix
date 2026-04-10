@@ -4,6 +4,13 @@ let
   settings = import ../settings.nix;
 in
 {
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users."${settings.username}" = {
+    isNormalUser = true;
+    description = settings.userDescription;
+    extraGroups = [ "networkmanager" "wheel" ];
+  };
+
   boot.supportedFilesystems = [ "ntfs" ];
 
   swapDevices = [{

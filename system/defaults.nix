@@ -4,19 +4,11 @@ let
   settings = import ../settings.nix;
 in
 {
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users."${settings.username}" = {
-    isNormalUser = true;
-    description = settings.userDescription;
-    extraGroups = [ "networkmanager" "wheel" ];
-  };
-
   # Enable automatic login for the user.
   # services.displayManager.autoLogin.enable = true;
   # services.displayManager.autoLogin.user = settings.username;
 
-  # Set your time zone.
-  time.timeZone = "Europe/Moscow";
+  time.timeZone = settings.timeZone;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";

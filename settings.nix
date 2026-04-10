@@ -4,6 +4,7 @@ rec {
   username = ""; # CHANGE: your username
   userDescription = "Adrian";
   hostname = "nixos";
+  timeZone = "Europe/Moscow";
 
   path-to-config = "/home/${username}/nixos-config"; # CHANGE: directory where this file is located
 
