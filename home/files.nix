@@ -1,5 +1,8 @@
 { ... }:
 
+let
+  settings = import ../settings.nix;
+in
 {
   home.file."gpu.sh" = {
     text = ''
@@ -27,7 +30,7 @@
   };
   home.file."rebuild.sh" = {
     text = ''
-      sudo nixos-rebuild switch
+      sudo nixos-rebuild switch --flake ${settings.path-to-config}#nixos
     '';
     executable = true;
   };

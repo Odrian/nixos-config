@@ -6,7 +6,7 @@ rec {
   hostname = "nixos";
   timeZone = "Europe/Moscow";
 
-  path-to-config = "/home/${username}/nixos-config"; # CHANGE: directory where this file is located
+  path-to-config = "/home/${username}/nixos-config"; # CHANGE: irectory where this file is located
 
   intelBusId = "PCI:0:2:0";
   nvidiaBusId = "PCI:1:0:0";
@@ -23,7 +23,6 @@ rec {
     core.autocrlf = false;
     core.excludeFiles = "~/.global_gitignore";
     core.editor = "micro";
-    core.pager = "delta";
     diff.algorithm = "histogram";
     init.defaultBranch = "main";
 

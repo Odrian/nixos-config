@@ -28,6 +28,8 @@ in {
     aspellDicts.en-science
     aspellDicts.ru
 
+    libsecret
+
     obsidian
     telegram-desktop
     # discord
@@ -39,7 +41,7 @@ in {
 
     vlc # video player
     unzip wget micro tree
-    flameshot
+    flameshot # screenshot
 
     kdePackages.filelight # disk usage analyzer
     gparted exfatprogs # disk partitioning tool
@@ -47,7 +49,7 @@ in {
     sbctl niv # for secure boot
 
     # thunderbird
-    kdePackages.kate
+    kdePackages.kate # like notepad
     gnome-system-monitor
 
 #    gnomeExtensions.appindicator
