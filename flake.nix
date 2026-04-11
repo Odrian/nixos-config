@@ -1,6 +1,3 @@
-#let
-#  settings = import settings.nix;
-#in
 {
   description = "Adrian flake for linux and macos";
 
@@ -15,9 +12,22 @@
 #    nixops.nixpkgs.follows = "nixpkgs";
 #    dwarffs.url = "dwarffs";
 #    dwarffs.nixpkgs.follows = "nixpkgs";
+
+    zen-browser-flake = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs = {
+        # IMPORTANT: To ensure compatibility with the latest Firefox version, use nixpkgs-unstable.
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
   };
 
-  outputs = all@{ self, nixpkgs, home-manager, ... }: {
+  outputs = all@{ self, nixpkgs, home-manager, zen-browser-flake, ... }:
+  let
+    settings = import ./settings.nix;
+  in
+  {
     # Utilized by `nix build .`
 #    defaultPackage.x86_64-linux = c-hello.defaultPackage.x86_64-linux;
 
@@ -51,9 +61,15 @@
         ./nixos/default.nix
 
         home-manager.nixosModules.home-manager {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users."catadrian" = import ./home/default.nix;
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+
+            extraSpecialArgs = {
+              inherit zen-browser-flake;
+            };
+            users.${settings.username} = import ./home/default.nix;
+          };
         }
       ];
     };

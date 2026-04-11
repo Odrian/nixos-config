@@ -2,7 +2,6 @@
 
 let
   settings = import ../settings.nix;
-  pkgs-unstable = import <nixpkgs-unstable> { config = { allowUnfree = true; }; };
 in {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -33,7 +32,7 @@ in {
     obsidian
     telegram-desktop
     # discord
-    pkgs-unstable.yandex-music
+    yandex-music
     throne # vpn
     pinta # image editor
     python3
