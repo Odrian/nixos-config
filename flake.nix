@@ -57,7 +57,7 @@
 #      specialArgs = { inherit inputs; };
       modules = [
         ./hosts/msi-nixos/hardware-configuration.nix
-        # ./secure-boot.nix
+#        ./secure-boot.nix
         ./nixos/default.nix
 
         home-manager.nixosModules.home-manager {
@@ -68,7 +68,7 @@
             extraSpecialArgs = {
               inherit zen-browser-flake;
             };
-            users.${settings.username} = import ./home/default.nix;
+            users.${settings.username} = import ./home/_msi-nixos.nix;
           };
         }
       ];

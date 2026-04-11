@@ -4,8 +4,6 @@
   home.packages = with pkgs; [
     rustup
     sccache
-
-    jetbrains.rust-rover
   ];
 
   home.sessionVariables = {

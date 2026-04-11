@@ -11,7 +11,5 @@
     pkg-config
     perf
     valgrind
-
-    (jetbrains.clion.override { forceWayland = true; })
   ];
 }
